@@ -1,0 +1,409 @@
+:root {
+  --accent: #8ee7ff;
+  --accent-strong: #23a8e8;
+  --background: #071018;
+  --foreground: #f4f7fb;
+  --muted: #9badc3;
+  --border: rgba(145, 166, 189, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    "Space Grotesk",
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+.download-background {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(142, 231, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(142, 231, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(74, 222, 128, 0.12), transparent 28%),
+    linear-gradient(315deg, rgba(251, 191, 36, 0.1), transparent 24%),
+    linear-gradient(180deg, #0a0f14 0%, #0d1722 48%, #071018 100%);
+  background-size: 54px 54px, 54px 54px, 100% 100%, 100% 100%, 100% 100%;
+}
+
+.download-background::before,
+.download-background::after {
+  position: absolute;
+  inset: -18%;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.download-background::before {
+  background: repeating-linear-gradient(
+    108deg,
+    transparent 0 62px,
+    rgba(142, 231, 255, 0.08) 63px,
+    transparent 65px
+  );
+  animation: field-drift 18s linear infinite;
+}
+
+.download-background::after {
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(142, 231, 255, 0.1) 49%, transparent 62%),
+    linear-gradient(180deg, transparent 0%, rgba(74, 222, 128, 0.08) 52%, transparent 66%);
+  mix-blend-mode: screen;
+  opacity: 0.48;
+  animation: scan 9s ease-in-out infinite alternate;
+}
+
+.network-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.network {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.network-edge {
+  stroke: url("#edge-gradient");
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 9px rgba(142, 231, 255, 0.24));
+  opacity: 0.58;
+  stroke-dasharray: 8 18;
+  animation: edge-flow 8s linear infinite;
+}
+
+.network-node {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  width: 4.6rem;
+  height: 4.6rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(142, 231, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(9, 19, 29, 0.82);
+  color: rgba(229, 237, 246, 0.82);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  box-shadow:
+    inset 0 0 24px rgba(142, 231, 255, 0.08),
+    0 0 38px rgba(0, 0, 0, 0.28);
+  transform: translate(-50%, -50%) scale(0.96);
+  animation: node-breathe 5.6s ease-in-out infinite;
+}
+
+.stream {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.72rem;
+  color: rgba(147, 164, 183, 0.55);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.stream.right {
+  right: 7%;
+  top: 16%;
+  text-align: right;
+}
+
+.stream.left {
+  left: 5%;
+  top: 12%;
+}
+
+.stream span {
+  animation: stream-fade 6s ease-in-out infinite;
+}
+
+.stream span:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.stream span:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  min-height: 100vh;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) minmax(23rem, 31rem);
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2rem clamp(1.25rem, 5vw, 5rem);
+}
+
+.hero {
+  display: flex;
+  min-height: 22rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-frame {
+  position: relative;
+  width: min(24rem, 100%);
+  height: 6.7rem;
+  overflow: hidden;
+}
+
+.logo-frame img {
+  position: absolute;
+  left: -7.75rem;
+  top: -8.4rem;
+  width: 37rem;
+  max-width: none;
+  height: auto;
+}
+
+.hero h1 {
+  max-width: 48rem;
+  margin: 1.75rem 0 0;
+  color: white;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  line-height: 1.04;
+}
+
+.hero p {
+  max-width: 42rem;
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.download-card {
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: rgba(10, 16, 24, 0.84);
+  padding: 1.5rem;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(22px);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.download-card h2 {
+  margin: 0.5rem 0 0;
+  color: white;
+  font-size: 1.65rem;
+}
+
+.card-copy {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.primary-action {
+  display: block;
+  margin-top: 1.35rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #041016;
+  font-weight: 800;
+  padding: 0.95rem 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.primary-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(142, 231, 255, 0.18);
+}
+
+.release-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  padding: 0.85rem 1rem;
+}
+
+.release-panel a {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.feature-grid div {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  padding: 1rem;
+}
+
+.feature-grid strong,
+.feature-grid span {
+  display: block;
+}
+
+.feature-grid strong {
+  color: white;
+}
+
+.feature-grid span {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+@keyframes field-drift {
+  from {
+    transform: translate3d(-2%, -1%, 0);
+  }
+
+  to {
+    transform: translate3d(2%, 1%, 0);
+  }
+}
+
+@keyframes scan {
+  from {
+    transform: translate3d(-8%, -4%, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate3d(8%, 4%, 0) rotate(2deg);
+  }
+}
+
+@keyframes edge-flow {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -52;
+  }
+}
+
+@keyframes node-breathe {
+  0%,
+  100% {
+    border-color: rgba(142, 231, 255, 0.28);
+    transform: translate(-50%, -50%) translateY(0) scale(0.96);
+  }
+
+  50% {
+    border-color: rgba(74, 222, 128, 0.48);
+    transform: translate(-50%, -50%) translateY(-6px) scale(1);
+  }
+}
+
+@keyframes stream-fade {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translateY(0);
+  }
+
+  45%,
+  60% {
+    opacity: 0.82;
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 920px) {
+  .page-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    padding: 1.25rem;
+  }
+
+  .download-card {
+    padding: 1.1rem;
+  }
+
+  .release-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .network-node {
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 0.62rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-background::before,
+  .download-background::after,
+  .network-edge,
+  .network-node,
+  .stream span {
+    animation: none;
+  }
+}

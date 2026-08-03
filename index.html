@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PaperGraph | Download</title>
+    <meta
+      name="description"
+      content="Download da app PaperGraph para Windows, com mapa de artigos, editor LaTeX e workspaces colaborativas."
+    />
+    <link rel="icon" href="./assets/papergraph-icon.png" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script src="./assets/app.js" defer></script>
+  </head>
+  <body>
+    <main class="download-background">
+      <div class="network-layer" aria-hidden="true">
+        <svg class="network" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="edge-gradient" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stop-color="rgba(142,231,255,0.08)" />
+              <stop offset="48%" stop-color="rgba(142,231,255,0.58)" />
+              <stop offset="100%" stop-color="rgba(74,222,128,0.3)" />
+            </linearGradient>
+          </defs>
+          <line class="network-edge" x1="9" y1="32" x2="28" y2="42" />
+          <line class="network-edge" x1="9" y1="32" x2="16" y2="78" />
+          <line class="network-edge" x1="28" y1="42" x2="48" y2="66" />
+          <line class="network-edge" x1="48" y1="66" x2="70" y2="50" />
+          <line class="network-edge" x1="70" y1="50" x2="82" y2="25" />
+          <line class="network-edge" x1="70" y1="50" x2="88" y2="82" />
+          <line class="network-edge" x1="16" y1="78" x2="48" y2="66" />
+          <line class="network-edge" x1="28" y1="42" x2="70" y2="50" />
+        </svg>
+
+        <div class="network-node" style="left: 9%; top: 32%">EXE</div>
+        <div class="network-node" style="left: 28%; top: 42%">TEX</div>
+        <div class="network-node" style="left: 16%; top: 78%">PDF</div>
+        <div class="network-node" style="left: 48%; top: 66%">MAP</div>
+        <div class="network-node" style="left: 70%; top: 50%">SYNC</div>
+        <div class="network-node" style="left: 82%; top: 25%">UPD</div>
+        <div class="network-node" style="left: 88%; top: 82%">BIB</div>
+
+        <div class="stream left">
+          <span>latex compiler</span>
+          <span>local preview</span>
+          <span>paper network</span>
+        </div>
+        <div class="stream right">
+          <span>auto update</span>
+          <span>shared workspace</span>
+          <span>research graph</span>
+        </div>
+      </div>
+
+      <section class="page-shell">
+        <div class="hero">
+          <div class="logo-frame" aria-label="PaperGraph">
+            <img src="./assets/papergraph-logo-text.png" alt="PaperGraph" />
+          </div>
+          <h1>A tua investigação, agora numa app.</h1>
+          <p>
+            Instala o PaperGraph para escrever artigos LaTeX, compilar PDFs localmente e
+            organizar as ligações entre ideias num mapa colaborativo.
+          </p>
+        </div>
+
+        <aside class="download-card">
+          <p class="eyebrow">Download</p>
+          <h2>PaperGraph para Windows</h2>
+          <p class="card-copy">
+            O instalador inclui a app desktop e prepara o compilador LaTeX usado pela preview.
+            As atualizações aparecem quando uma nova versão é publicada.
+          </p>
+
+          <a class="primary-action" data-download-link href="https://github.com/Hug00x/PaperGraph/releases/latest">
+            Download da app
+          </a>
+
+          <div class="release-panel">
+            <span data-release-state>A procurar a última versão...</span>
+            <a href="https://github.com/Hug00x/PaperGraph/releases" target="_blank" rel="noreferrer">
+              Ver releases
+            </a>
+          </div>
+
+          <div class="feature-grid">
+            <div>
+              <strong>Compilação local</strong>
+              <span>Preview PDF sem instalar LaTeX manualmente.</span>
+            </div>
+            <div>
+              <strong>Auto updates</strong>
+              <span>Atualiza só quando publicares uma versão nova.</span>
+            </div>
+            <div>
+              <strong>Workspaces cloud</strong>
+              <span>Mapas, artigos e ficheiros sincronizados via Supabase.</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>
