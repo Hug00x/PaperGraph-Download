@@ -21,16 +21,16 @@ async function loadLatestRelease() {
 
     if (installer?.browser_download_url) {
       downloadLink.href = installer.browser_download_url;
-      downloadLink.textContent = `Download ${release.tag_name ?? "PaperGraph"}`;
-      releaseState.textContent = `Última versão: ${release.tag_name ?? "disponível"}`;
+      downloadLink.textContent = `Descarregar ${release.tag_name ?? "PaperGraph"}`;
+      releaseState.textContent = `${release.tag_name ?? "Versão disponível"} pronta`;
       return;
     }
 
     downloadLink.href = release.html_url || latestReleaseUrl;
-    releaseState.textContent = "A última release ainda não tem instalador Windows.";
+    releaseState.textContent = "Instalador Windows em breve";
   } catch {
     downloadLink.href = latestReleaseUrl;
-    releaseState.textContent = "Quando a primeira release estiver pronta, o botão aponta para o instalador.";
+    releaseState.textContent = "Instalador Windows em breve";
   }
 }
 
