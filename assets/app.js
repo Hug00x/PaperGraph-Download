@@ -1,5 +1,6 @@
 const downloadLink = document.querySelector("[data-download-link]");
-const latestReleaseUrl = "https://github.com/Hug00x/PaperGraph/releases/latest";
+const installerFallbackUrl =
+  "https://github.com/Hug00x/PaperGraph/releases/download/v0.1.0/PaperGraph-Setup-0.1.0.exe";
 
 async function loadLatestRelease() {
   try {
@@ -24,9 +25,9 @@ async function loadLatestRelease() {
       return;
     }
 
-    downloadLink.href = release.html_url || latestReleaseUrl;
+    downloadLink.href = installerFallbackUrl;
   } catch {
-    downloadLink.href = latestReleaseUrl;
+    downloadLink.href = installerFallbackUrl;
   }
 }
 
