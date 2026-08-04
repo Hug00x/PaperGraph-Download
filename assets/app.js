@@ -1,4 +1,3 @@
-const releaseState = document.querySelector("[data-release-state]");
 const downloadLink = document.querySelector("[data-download-link]");
 const latestReleaseUrl = "https://github.com/Hug00x/PaperGraph/releases/latest";
 
@@ -22,15 +21,12 @@ async function loadLatestRelease() {
     if (installer?.browser_download_url) {
       downloadLink.href = installer.browser_download_url;
       downloadLink.textContent = `Descarregar ${release.tag_name ?? "PaperGraph"}`;
-      releaseState.textContent = `${release.tag_name ?? "Versão disponível"} pronta`;
       return;
     }
 
     downloadLink.href = release.html_url || latestReleaseUrl;
-    releaseState.textContent = "Instalador Windows em breve";
   } catch {
     downloadLink.href = latestReleaseUrl;
-    releaseState.textContent = "Instalador Windows em breve";
   }
 }
 
