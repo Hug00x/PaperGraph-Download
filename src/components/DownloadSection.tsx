@@ -46,7 +46,7 @@ export function DownloadSection({ url }: { url: string }) {
           <Logo />
         </a>
         <span>© {new Date().getFullYear()} PaperGraph</span>
-        <a href="https://github.com/Hug00x/PaperGraph">
+        <a href="https://github.com/Hug00x">
           GitHub <span aria-hidden="true">↗</span>
         </a>
       </footer>
