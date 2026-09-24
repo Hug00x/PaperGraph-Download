@@ -155,12 +155,12 @@ section[id] {
   max-width: none;
   height: auto;
   left: -92px;
-  top: -81px;
+  top: -84px;
 }
 .nav-download {
   font-size: 0.8rem;
   display: flex;
-  gap: 28px;
+  gap: 13px;
   align-items: center;
 }
 .nav-download span {
@@ -802,6 +802,17 @@ footer {
 footer > a:last-child:hover {
   color: var(--accent);
 }
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+}
+.github-icon {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
 @media (min-width: 1600px) {
   .hero-description {
     max-width: 600px;
@@ -879,11 +890,11 @@ footer > a:last-child:hover {
   .logo-frame img {
     width: 306px;
     left: -78px;
-    top: -69px;
+    top: -72px;
   }
   .nav-download {
     font-size: 0.72rem;
-    gap: 14px;
+    gap: 8px;
   }
   .hero-track {
     height: 185svh;
@@ -1129,10 +1140,13 @@ footer > a:last-child:hover {
   footer .logo-frame img {
     width: 250px;
     left: -64px;
-    top: -56px;
+    top: -58px;
   }
   footer > span {
     font-size: 0.6rem;
+  }
+  .github-link {
+    font-size: 0.65rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
