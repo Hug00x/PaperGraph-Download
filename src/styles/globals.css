@@ -243,11 +243,6 @@ section[id] {
 .magnetic-target:hover .primary-action {
   background: #b5efff;
 }
-.action-arrow {
-  margin-left: 20px;
-  font-size: 1.2rem;
-  line-height: 1;
-}
 .hero-bottom {
   position: absolute;
   bottom: 32px;
@@ -943,9 +938,6 @@ footer > a:last-child:hover {
     font-size: 0.76rem;
     padding: 17px 19px;
     gap: 10px;
-  }
-  .action-arrow {
-    margin-left: 10px;
   }
   .technical-note {
     font-size: 0.5rem;
