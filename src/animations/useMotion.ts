@@ -131,13 +131,13 @@ export function useMotion(root: RefObject<HTMLDivElement | null>) {
           .add(
             ".paper-document",
             { scale: [1, mobile.matches ? 0.44 : 0.7], duration: 300 },
-            480,
+            1000,
           )
-          .add(".research-edges", { opacity: [0, 0.65], duration: 180 }, 530)
+          .add(".research-edges", { opacity: [0, 0.65], duration: 180 }, 1050)
           .add(
             ".research-edges path",
             { strokeDashoffset: [1, 0], duration: 300 },
-            530,
+            1050,
           )
           .add(
             ".research-node",
@@ -147,7 +147,7 @@ export function useMotion(root: RefObject<HTMLDivElement | null>) {
               duration: 230,
               delay: stagger(40),
             },
-            550,
+            1070,
           )
           .add(
             ".step-tex",
@@ -167,9 +167,22 @@ export function useMotion(root: RefObject<HTMLDivElement | null>) {
           .add(
             ".step-map",
             { color: ["#9badc3", "#8ee7ff"], duration: 180 },
-            600,
+            1100,
           )
-          .add(".sync-status", { opacity: [0.5, 1], duration: 200 }, 800);
+          .add(".sync-status", { opacity: [0.5, 1], duration: 200 }, 1400)
+          .add(".research-node, .research-edges", { opacity: [1, 0.15], duration: 180 }, 1600)
+          .add(".paper-excerpt mark", { backgroundSize: ['0% 100%', '100% 100%'], duration: 240 }, 600)
+          .add(".highlight-note", { opacity: [0, 1], y: [8, 0], duration: 160 }, 780)
+          .add(".step-map", { color: ['#8ee7ff', '#9badc3'], duration: 150 }, 1720)
+          .add(".step-highlight", { color: ['#9badc3', '#8ee7ff'], duration: 150 }, 600)
+          .add(".highlight-note", { opacity: [1, 0], duration: 140 }, 930)
+          .add(".paper-document", { x: [0, mobile.matches ? '-42%' : '-65%'], scale: [mobile.matches ? 0.44 : 0.7, mobile.matches ? 0.6 : 0.88], duration: 220 }, 1600)
+          .add(".showcase-chat", { opacity: [0, 1], y: [18, 0], duration: 220 }, 1700)
+          .add(".showcase-question", { opacity: [0, 1], y: [6, 0], duration: 130 }, 1900)
+          .add(".showcase-answer", { opacity: [0, 1], y: [8, 0], duration: 200 }, 2110)
+          .add(".step-highlight", { color: ['#8ee7ff', '#9badc3'], duration: 150 }, 1000)
+          .add(".step-ask", { color: ['#9badc3', '#8ee7ff'], duration: 150 }, 1800)
+          .add(".showcase-citation", { opacity: [0, 1], duration: 120 }, 2310);
       });
       const removePointer = fine.matches ? installPointer(element) : () => {};
       dispose = () => {

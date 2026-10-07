@@ -66,13 +66,19 @@ test("scroll is reversible, stable when stopped, and reduced motion restores con
   await page.goto("./");
   await scrollStory(page, 0);
   await expect(page.locator(".tex-content")).toHaveCSS("opacity", "1");
+  await scrollStory(page, 0.36);
+  await expect(page.locator(".paper-excerpt mark")).toHaveCSS("background-size", "100% 100%");
+  await expect(page.locator(".research-node").first()).toHaveCSS("opacity", "0");
   await scrollStory(page, 0.5);
   await expect(page.locator(".pdf-content")).toHaveCSS("opacity", "1");
   await scrollStory(page, 1);
   await expect(page.locator(".research-node").first()).toHaveCSS(
     "opacity",
-    "1",
+    "0.15",
   );
+  await expect(page.locator(".paper-excerpt mark")).toHaveCSS("background-size", "100% 100%");
+  await expect(page.locator(".showcase-answer")).toHaveCSS("opacity", "1");
+  await expect(page.locator(".showcase-chat")).toHaveCSS("opacity", "1");
   const transform = await page.locator(".paper-document").getAttribute("style");
   await page.waitForTimeout(300);
   expect(await page.locator(".paper-document").getAttribute("style")).toBe(
@@ -81,6 +87,7 @@ test("scroll is reversible, stable when stopped, and reduced motion restores con
   await scrollStory(page, 0);
   await expect(page.locator(".tex-content")).toHaveCSS("opacity", "1");
   await expect(page.locator(".pdf-content")).toHaveCSS("opacity", "0");
+  await expect(page.locator(".showcase-chat")).toHaveCSS("opacity", "0");
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(page.locator(".paper-document")).toHaveCSS("opacity", "1");
   await expect(page.locator(".product-sticky")).toHaveCSS(
@@ -88,6 +95,7 @@ test("scroll is reversible, stable when stopped, and reduced motion restores con
     "relative",
   );
   await expect(page.locator(".pdf-content")).toHaveCSS("opacity", "1");
+  await expect(page.locator(".showcase-answer")).toHaveCSS("opacity", "1");
   await expect(page.locator(".hero-content")).toHaveCSS("opacity", "1");
   expect(errors).toEqual([]);
 });

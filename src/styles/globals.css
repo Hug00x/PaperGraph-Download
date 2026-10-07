@@ -417,7 +417,7 @@ section[id] {
   transform-origin: left;
 }
 .product-track {
-  height: 290svh;
+  height: 440svh;
   background: #0a131d;
   border-block: 1px solid var(--border);
 }
@@ -589,6 +589,24 @@ section[id] {
   display: grid;
   gap: 5px;
 }
+.paper-excerpt { font: 0.65rem/1.5 Georgia, serif; }
+.paper-excerpt mark { color: inherit; background: linear-gradient(#f6dc78, #f6dc78) left center / 0% 100% no-repeat; padding: 2px 0; }
+.highlight-note { position: absolute; z-index: 4; bottom: 8%; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid #756638; border-radius: 10px; background: #172027; opacity: 0; font-size: 0.7rem; }
+.highlight-note strong, .highlight-note small { display: block; }
+.highlight-note small { color: var(--text-muted); margin-top: 4px; }
+.highlight-swatch { width: 12px; height: 24px; border-radius: 3px; background: #f6dc78; }
+.showcase-chat { position: absolute; right: 6%; width: min(38%, 360px); z-index: 5; padding: 18px; border: 1px solid #385365; border-radius: 12px; background: #101d29; box-shadow: 0 12px 40px #0005; opacity: 0; font-size: 0.75rem; }
+.showcase-chat header { display: flex; align-items: center; gap: 8px; }
+.showcase-chat header > span:last-child { margin-left: auto; color: var(--accent); }
+.showcase-chat-context { font-size: 0.5rem; letter-spacing: 0.08em; color: var(--accent); margin-block: 16px; }
+.showcase-chat-context span { display: block; font-size: 0.65rem; letter-spacing: 0; color: var(--text-muted); margin-top: 5px; }
+.showcase-question { background: #203c49; border-radius: 9px 9px 0 9px; padding: 10px 12px; margin-left: 15%; opacity: 0; }
+.showcase-answer { margin-top: 16px; opacity: 0; }
+.showcase-answer p { margin-top: 8px; line-height: 1.6; }
+.showcase-agent-label { color: var(--accent); font-size: 0.5rem; letter-spacing: 0.08em; }
+.showcase-citation { display: inline-block; color: var(--accent); border: 1px solid var(--border); border-radius: 5px; padding: 4px 7px; margin-top: 10px; font-size: 0.55rem; opacity: 0; }
+.showcase-chat-input { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--border); margin-top: 16px; padding-top: 12px; font-size: 0.6rem; color: var(--text-muted); }
+.showcase-chat-input span { color: var(--accent); }
 .paper-lines i {
   height: 2px;
   background: #abb7c2;
@@ -704,7 +722,7 @@ section[id] {
 }
 .story-steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 30px;
   list-style: none;
   padding: 0;
@@ -1099,6 +1117,7 @@ footer > a:last-child:hover {
   .story-steps {
     gap: 12px;
     margin-top: 19px;
+    grid-template-columns: repeat(3, 1fr);
   }
   .story-steps li {
     display: block;
@@ -1176,7 +1195,7 @@ footer > a:last-child:hover {
     padding-block: 75px;
   }
   .paper-document {
-    transform: scale(0.62);
+    transform: translateX(-65%) scale(0.62);
   }
   .tex-content,
   .tex-tab {
@@ -1191,6 +1210,8 @@ footer > a:last-child:hover {
   .research-edges path {
     stroke-dashoffset: 0;
   }
+  .paper-excerpt mark { background-size: 100% 100%; }
+  .showcase-chat, .showcase-question, .showcase-answer, .showcase-citation { opacity: 1; }
 }
 @media (max-height: 700px) and (min-width: 601px) {
   .product-sticky {
@@ -1226,5 +1247,21 @@ footer > a:last-child:hover {
   .story-steps {
     margin-top: 15px;
   }
+}
+
+@media (max-width: 600px) {
+  .showcase-chat { right: 3%; width: 53%; padding: 12px; font-size: 0.58rem; }
+  .showcase-chat header { gap: 5px; }
+  .showcase-chat header .status-dot { display: none; }
+  .showcase-chat-context { margin-block: 10px; font-size: 0.4rem; }
+  .showcase-chat-context span { font-size: 0.5rem; }
+  .showcase-question { padding: 8px; margin-left: 0; }
+  .showcase-answer { margin-top: 10px; }
+  .showcase-chat-input { font-size: 0.46rem; margin-top: 10px; padding-top: 8px; }
+  .highlight-note { bottom: 4%; padding: 9px 12px; font-size: 0.6rem; }
+  .paper-excerpt { font-size: 0.52rem; }
+}
+@media (max-width: 600px) and (prefers-reduced-motion: reduce) {
+  .paper-document { transform: translateX(-42%) scale(0.6); }
 }
 

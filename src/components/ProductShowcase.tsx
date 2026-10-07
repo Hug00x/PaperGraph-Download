@@ -13,8 +13,8 @@ export function ProductShowcase() {
             <h2 id="product-title">As ideias ganham forma.</h2>
           </div>
           <p>
-            Um mapa visual com ligações manuais, Wikilinks, citações e
-            relações semânticas entre artigos.
+            Liga artigos num mapa, guarda excertos com destaques e faz
+            perguntas ao agente sem sair do workspace.
           </p>
         </div>
         <div className="workspace">
@@ -72,6 +72,9 @@ export function ProductShowcase() {
                   <span className="paper-rule" />
                   <p>1. Introdução</p>
                   <div className="paper-lines">
+                    <span className="paper-excerpt">
+                      <mark>As ideias não existem isoladamente.</mark>
+                    </span>
                     {Array.from({ length: 6 }, (_, i) => (
                       <i key={i} />
                     ))}
@@ -95,6 +98,23 @@ export function ProductShowcase() {
                   </div>
                 ),
               )}
+              <div className="highlight-note">
+                <span className="highlight-swatch" />
+                <div><strong>Destaque guardado</strong><small>Um excerto para voltar a ler.</small></div>
+                <span>✓</span>
+              </div>
+              <div className="showcase-chat">
+                <header><span className="status-dot" /><strong>Perguntar a Papergraph</strong><span>✦</span></header>
+                <div className="showcase-chat-context">CONTEXTO <span>A tua investigação · artigo selecionado</span></div>
+                <p className="showcase-question">Como se ligam estas ideias?</p>
+                <div className="showcase-answer">
+                  <span className="showcase-agent-label">PAPERGRAPH</span>
+                  <p>O excerto sugere que uma ideia ganha sentido quando é ligada a outras.</p>
+                  <p>No mapa, podes explorar essas relações e comparar os artigos que a sustentam.</p>
+                  <span className="showcase-citation">Artigo 1 · Introdução</span>
+                </div>
+                <div className="showcase-chat-input">Faz uma pergunta sobre o artigo <span>↑</span></div>
+              </div>
               <span className="stage-coordinate">
                 DOCUMENTO / LIGAÇÕES / MAPA
               </span>
@@ -102,7 +122,7 @@ export function ProductShowcase() {
           </div>
           <div className="workspace-status">
             <span>LOCAL PREVIEW</span>
-            <span>latex → pdf → research graph</span>
+            <span>latex → pdf → mapa → destaques → perguntas</span>
             <span className="sync-status">
               <span className="status-dot" /> SHARED WORKSPACE
             </span>
@@ -117,10 +137,12 @@ export function ProductShowcase() {
             <span>02</span>
             <strong>Compilar em PDF</strong>
           </li>
+          <li className="step-highlight"><span>03</span><strong>Destacar o essencial</strong></li>
           <li className="step-map">
-            <span>03</span>
+            <span>04</span>
             <strong>Ligar as ideias</strong>
           </li>
+          <li className="step-ask"><span>05</span><strong>Perguntar ao agente</strong></li>
         </ol>
       </div>
     </section>
