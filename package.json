@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "test": "playwright test"
+    "test": "playwright test",
+    "prebuild": "node scripts/sync-product.mjs",
+    "predev": "node scripts/sync-product.mjs"
   },
   "dependencies": {
     "animejs": "^4.2.2",

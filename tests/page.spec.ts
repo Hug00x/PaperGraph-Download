@@ -35,9 +35,9 @@ test("release resolution and fallback keep all download links consistent", async
       json: {
         assets: [
           {
-            name: "PaperGraph.exe",
+            name: "PaperGraph-Setup-2.0.0.exe",
             browser_download_url:
-              "https://github.com/Hug00x/PaperGraph/releases/download/v2/PaperGraph.exe",
+              "https://github.com/Hug00x/PaperGraph/releases/download/v2/PaperGraph-Setup-2.0.0.exe",
           },
         ],
       },
@@ -46,7 +46,7 @@ test("release resolution and fallback keep all download links consistent", async
   await page.goto("./");
   await expect(page.locator("[data-download-link]")).toHaveCount(2);
   for (const link of await page.locator("[data-download-link]").all())
-    await expect(link).toHaveAttribute("href", /\/v2\/PaperGraph.exe$/);
+    await expect(link).toHaveAttribute("href", /\/v2\/PaperGraph-Setup-2.0.0.exe$/);
   await page.route("**/releases/latest", (route) =>
     route.fulfill({ status: 503, body: "" }),
   );

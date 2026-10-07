@@ -13,8 +13,8 @@ export function ProductShowcase() {
             <h2 id="product-title">As ideias ganham forma.</h2>
           </div>
           <p>
-            Escrita LaTeX, preview PDF e mapa de investigação num workspace
-            desktop.
+            Um mapa visual com ligações manuais, Wikilinks, citações e
+            relações semânticas entre artigos.
           </p>
         </div>
         <div className="workspace">

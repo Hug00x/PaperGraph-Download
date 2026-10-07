@@ -31,12 +31,27 @@ Abrir `/PaperGraph-Download/` no servidor indicado. Em PowerShell com scripts bl
 Componentes em `src/components/`; tokens e estilos em `src/styles/globals.css`.
 Os assets originais continuam em `assets/`. Os antigos `styles.css` e `app.js` ficam como referência e não são carregados no build.
 
-`src/hooks/useRelease.ts` procura o primeiro `.exe` da release pública mais recente em `Hug00x/PaperGraph`.
-Todos os CTAs partilham o mesmo URL. Se a API falhar, não tiver instalador ou atingir o limite de pedidos, mantém-se o URL original:
-`https://github.com/Hug00x/PaperGraph/releases/download/v0.1.0/PaperGraph-Setup-0.1.0.exe`.
-O texto “Descarregar para Windows” permanece consistente. O HTML inclui uma alternativa de download sem JavaScript.
+`src/product.json` records the current source version (0.1.9) and repository.
+`npm run dev` and `npm run build` synchronize it from `../papergraph/package.json`
+when available; standalone CI uses the committed snapshot. Commit that snapshot
+when updating the application version. This is the source version, not proof
+that the release has been published.
 
-Não existiam screenshots da aplicação: o showcase é uma representação abstrata, identificada como “Representação do workflow”, com documento e referências ilustrativos. Pode ser substituído por capturas reais quando existirem.
+`src/hooks/useRelease.ts` resolves the latest public PaperGraph-Setup installer.
+Both CTAs share its URL. API failure or missing installer falls back to the
+GitHub latest-release page, also used by the no-JavaScript link.
+
+The page covers LaTeX/PDF, four graph relationship types, OpenAlex discovery,
+local semantic reranking, collaboration and Windows x64 downloads.
+Ollama and the compiler are bundled. Missing BGE-M3 downloads at app startup,
+not first semantic use. Online services and compiler resources still need Internet;
+shared metadata/vectors use cloud storage and discovery sends text to OpenAlex.
+
+The showcase remains a labelled workflow illustration. No current application
+screenshots were found. Groups are omitted from feature promotion because the
+current release-readiness report records an overlapping-Group interaction failure.
+The application report marks 0.1.9 not ready for release; this website change
+neither publishes nor certifies an installer.
 
 ## Verificação
 

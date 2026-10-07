@@ -730,6 +730,7 @@ section[id] {
   padding-block: 145px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   gap: 8%;
 }
 .download-copy > p:not(.section-label) {
@@ -1226,3 +1227,4 @@ footer > a:last-child:hover {
     margin-top: 15px;
   }
 }
+

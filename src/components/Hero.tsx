@@ -1,4 +1,5 @@
 import { DownloadButton } from "./ui";
+import { currentVersion } from "../hooks/useRelease";
 import { HeroLogo } from "./HeroLogo";
 const tags = ["EXE", "TEX", "PDF", "MAP", "SYNC", "UPD", "BIB"];
 export function Hero({ url }: { url: string }) {
@@ -34,17 +35,16 @@ export function Hero({ url }: { url: string }) {
               <span className="title-line">A tua investigação,</span>
             </span>
             <span className="reveal-line">
-              <span className="title-line accent-text">agora numa app.</span>
+              <span className="title-line accent-text">num mapa de ideias.</span>
             </span>
           </h1>
           <p className="hero-description">
-            Instala o PaperGraph para escrever artigos LaTeX, compilar PDFs
-            localmente e organizar as ligações entre ideias num mapa
-            colaborativo.
+            Escreve em LaTeX, lê e destaca PDFs e explora ligações entre
+            artigos científicos num workspace colaborativo.
           </p>
           <div className="hero-action">
             <DownloadButton url={url} />
-            <span className="technical-note">DESKTOP / WINDOWS / .EXE</span>
+            <span className="technical-note">v{currentVersion} / WINDOWS x64 / .EXE</span>
           </div>
         </div>
         <div className="hero-bottom section-shell">

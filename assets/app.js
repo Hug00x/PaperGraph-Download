@@ -1,6 +1,6 @@
 const downloadLink = document.querySelector("[data-download-link]");
 const installerFallbackUrl =
-  "https://github.com/Hug00x/PaperGraph/releases/download/v0.1.0/PaperGraph-Setup-0.1.0.exe";
+  "https://github.com/Hug00x/PaperGraph/releases/latest";
 
 async function loadLatestRelease() {
   try {

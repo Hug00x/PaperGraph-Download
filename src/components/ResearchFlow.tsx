@@ -14,11 +14,11 @@ export function ResearchFlow() {
           às ligações.
         </h2>
         <p>
-          Escrever artigos LaTeX.
+          Escrever em LaTeX e ler PDFs.
           <br />
-          Compilar PDFs localmente.
+          Ligar artigos, citações e Wikilinks.
           <br />
-          Organizar ligações entre ideias.
+          Descobrir investigação relacionada.
         </p>
       </div>
       <div className="workflow-rail">

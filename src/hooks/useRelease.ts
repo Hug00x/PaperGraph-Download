@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-export const installerFallbackUrl =
-  "https://github.com/Hug00x/PaperGraph/releases/download/v0.1.0/PaperGraph-Setup-0.1.0.exe";
+import product from "../product.json" with { type: "json" };
+export const currentVersion = product.version;
+export const installerFallbackUrl = `${product.repository}/releases/latest`;
 type Release = { assets?: { name?: string; browser_download_url?: string }[] };
 export function useRelease() {
   const [url, setUrl] = useState(installerFallbackUrl);
@@ -19,7 +20,7 @@ export function useRelease() {
         const release: Release = await response.json();
         const installer =
           Array.isArray(release.assets) &&
-          release.assets.find((asset) => /\.exe$/i.test(asset.name ?? ""));
+          release.assets.find((asset) => /^PaperGraph-Setup-[\d.]+\.exe$/i.test(asset.name ?? ""));
         const candidate = installer && installer.browser_download_url;
         if (
           typeof candidate === "string" &&
@@ -29,7 +30,7 @@ export function useRelease() {
         )
           setUrl(candidate);
       } catch {
-        /* Keep the original installer when the API is unavailable. */
+        /* Keep the releases page when no verified installer is available. */
       }
     }
     void resolve();
